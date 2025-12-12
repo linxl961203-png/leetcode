@@ -1,4 +1,4 @@
-### 中文解释（核心解法+类比融合）
+### 中文解释
 我们可以把“有序数组去重”的问题类比成**整理图书馆按编号排序的书架**，结合快慢指针法的核心逻辑来理解：
 
 有序数组就像摆满书籍的货架（如 `[0,0,1,1,1,2,2,3]`），书籍按编号非递减排列，重复编号的书是“冗余藏书”；我们用两个指针完成原地整理，无需额外空间：
@@ -7,7 +7,7 @@
 4. **核心操作**：巡检员找到新书时，整理员把这本新书放到自己脚下（覆盖冗余书），然后往后挪；重复书则巡检员直接略过，整理员不动。
 5. **最终结果**：巡检员走完所有格子后，整理员所在的位置就是“唯一书籍的数量”；此时货架前该数量的格子里，都是有序且唯一的书，后面的冗余书无需清理（图书馆只关注前半部分）。
 
-### 英文解释（Core Solution + Integrated Analogy）
+### 英文解释
 We can analogize the "deduplication of sorted array" problem to **organizing a library shelf with books sorted by serial numbers**, and understand it with the core logic of the two-pointer method:
 
 A sorted array is like a shelf full of books (e.g., `[0,0,1,1,1,2,2,3]`), where books are arranged in non-decreasing order of serial numbers, and books with duplicate serial numbers are "redundant books". We use two pointers to organize the shelf in-place without extra space:
