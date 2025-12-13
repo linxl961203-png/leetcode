@@ -7,11 +7,11 @@
 5. **返回结果**：遍历结束后，慢指针的位置即为修改后数组的新长度（有效区间的长度）。
 
 ### English Description of the Solution
-This problem aims to remove duplicates from a sorted array (retaining at most two occurrences of each element), with the core approach of the "slow-fast pointer method" to achieve in-place modification and meet the O(1) extra space requirement. The detailed logic is as follows:
-Boundary Handling: If the length of the array is ≤ 2, it naturally satisfies the "at most two duplicates" rule, so we directly return the length of the array;
-Pointer Initialization: Both the slow pointer and the fast pointer start from index 2 — the first two elements do not need verification and definitely comply with the rule. The slow pointer marks the "next empty position of the valid interval" (the valid interval is [0, slow-1]), and the fast pointer is responsible for traversing the entire array;
-Core Judgment Logic: Leveraging the characteristic of sorted arrays (duplicate elements are consecutive), when the fast pointer traverses each element, it only needs to compare the element two positions before the slow pointer (nums[slow-2]) with the current element pointed to by the fast pointer (nums[fast]):
-If they are not equal: It means the current element does not exceed two duplicates and can be included in the valid interval;
-If they are equal: It means the current element is a duplicate for the third time or more and needs to be skipped;
-In-place Array Update: If the element is eligible, assign the element pointed to by the fast pointer to the empty position of the slow pointer, and move the slow pointer backward (expand the valid interval); regardless of whether the element is eligible, the fast pointer always moves backward to continue traversal;
-Return Result: After the traversal ends, the position of the slow pointer is the valid length of the modified array (the length of the valid interval [0, slow-1]).
+This problem aims to remove duplicates from a **sorted array** (retaining at most two occurrences of each element), with the core approach of the "slow-fast pointer method" to achieve in-place modification and meet the O(1) extra space requirement. The detailed logic is as follows:
+1. **Boundary Handling**: If the length of the array is ≤ 2, it naturally satisfies the "at most two duplicates" rule, so we directly return the length of the array;
+2. **Pointer Initialization**: Both the slow pointer and the fast pointer start from index 2 — the first two elements do not need verification and definitely comply with the rule. The slow pointer marks the "next empty position of the valid interval" (the valid interval is `[0, slow-1]`), and the fast pointer is responsible for traversing the entire array;
+3. **Core Judgment Logic**: Leveraging the characteristic of sorted arrays (duplicate elements are consecutive), when the fast pointer traverses each element, it only needs to compare the element two positions before the slow pointer (`nums[slow-2]`) with the current element pointed to by the fast pointer (`nums[fast]`):
+   - If they are not equal: It means the current element does not exceed two duplicates and can be included in the valid interval;
+   - If they are equal: It means the current element is a duplicate for the third time or more and needs to be skipped;
+4. **In-place Array Update**: If the element is eligible, assign the element pointed to by the fast pointer to the empty position of the slow pointer, and move the slow pointer backward (expand the valid interval); regardless of whether the element is eligible, the fast pointer always moves backward to continue traversal;
+5. **Return Result**: After the traversal ends, the position of the slow pointer is the valid length of the modified array (the length of the valid interval `[0, slow-1]`).
